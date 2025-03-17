@@ -17,10 +17,13 @@ jobs:
         run: |
           sudo apt-get install sshpass
 
-      - name: Add VM to known hosts
+      # - name: Add VM to known hosts
+      - name: Setup SSH Key
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan ${{ secrets.VM_IP }} >> ~/.ssh/known_hosts
+          echo "${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.VM_IP }} >> ~/.ssh/known_hosts
 
       - name: Test SSH connection
         run: |
