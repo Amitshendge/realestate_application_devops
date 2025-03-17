@@ -17,13 +17,10 @@ jobs:
         run: |
           sudo apt-get install sshpass
 
-      # - name: Add VM to known hosts
-      - name: Setup SSH Key
+      - name: Add VM to known hosts
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H ${{ secrets.VM_IP }} >> ~/.ssh/known_hosts
+          ssh-keyscan ${{ secrets.VM_IP }} >> ~/.ssh/known_hosts
 
       - name: Test SSH connection
         run: |
@@ -31,16 +28,16 @@ jobs:
 
       - name: Create directory on VM
         run: |
-          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "rm -rf /home/${{ secrets.SSH_USER }}/git_code_realestate && mkdir -p /home/${{ secrets.SSH_USER }}/git_code_realestate"
+          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "rm -rf /home/${{ secrets.SSH_USER }}/git_code && mkdir -p /home/${{ secrets.SSH_USER }}/git_code"
 
       - name: Copy files to VM
         run: |
-          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} scp -r . ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }}:/home/${{ secrets.SSH_USER }}/git_code_realestate
+          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} scp -r . ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }}:/home/${{ secrets.SSH_USER }}/git_code
 
       - name: Run setup script on VM
         run: |
-          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "echo '${{ secrets.DEPLOY_SSH_PASSWORD }}' | sudo -S sh /home/${{ secrets.SSH_USER }}/git_code_realestate/devops_scripts/setup.sh"
+          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "echo '${{ secrets.DEPLOY_SSH_PASSWORD }}' | sudo -S sh /home/${{ secrets.SSH_USER }}/git_code/devops_scripts/setup.sh"
 
       - name: Run deployment script on VM
         run: |
-          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "echo '${{ secrets.DEPLOY_SSH_PASSWORD }}' | sudo -S sh /home/${{ secrets.SSH_USER }}/git_code_realestate/devops_scripts/deploy.sh"
+          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "echo '${{ secrets.DEPLOY_SSH_PASSWORD }}' | sudo -S sh /home/${{ secrets.SSH_USER }}/git_code/devops_scripts/deploy.sh"
