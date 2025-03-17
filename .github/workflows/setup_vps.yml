@@ -1,0 +1,43 @@
+name: Deploy to Hostinger VPS
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install sshpass
+        run: |
+          sudo apt-get install sshpass
+
+      - name: Add VM to known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan ${{ secrets.VM_IP }} >> ~/.ssh/known_hosts
+
+      - name: Test SSH connection
+        run: |
+          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh -v ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "echo 'SSH connection successful'"
+
+      - name: Create directory on VM
+        run: |
+          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "rm -rf /home/${{ secrets.SSH_USER }}/git_code && mkdir -p /home/${{ secrets.SSH_USER }}/git_code"
+
+      - name: Copy files to VM
+        run: |
+          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} scp -r . ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }}:/home/${{ secrets.SSH_USER }}/git_code
+
+      - name: Run setup script on VM
+        run: |
+          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "echo '${{ secrets.DEPLOY_SSH_PASSWORD }}' | sudo -S sh /home/${{ secrets.SSH_USER }}/git_code/devops_scripts/setup.sh"
+
+      - name: Run deployment script on VM
+        run: |
+          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "echo '${{ secrets.DEPLOY_SSH_PASSWORD }}' | sudo -S sh /home/${{ secrets.SSH_USER }}/git_code/devops_scripts/deploy.sh"
