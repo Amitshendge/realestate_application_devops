@@ -4,3 +4,4 @@ msal
 openai
 pinecone
 streamlit
+uvicorn
