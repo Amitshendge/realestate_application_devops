@@ -23,3 +23,11 @@ else
 fi
 
 echo "Python setup complete. Virtual environment is ready."
+
+# Install Node.js and npm
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+# Check Node.js and npm versions
+node -v
+npm -v
+# Install project dependencies for the UI
