@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
-import AuthComponent from "./componentsComponent";
+import AuthComponent from "./components/AuthComponent";
 import BotSelection from "./components/BotSelection";
 import ChatbotApp from "./components/ChatbotApp";
 import ChatbotApp1 from "./components/ChatbotApp1";
