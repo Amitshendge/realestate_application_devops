@@ -67,7 +67,7 @@ server {
     listen 80;
     server_name $DOMAIN www.$DOMAIN;
 
-    root $APP_DIR/build;
+    root $APP_DIR/dist;
     index index.html;
 
     location / {
