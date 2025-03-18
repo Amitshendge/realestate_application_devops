@@ -28,7 +28,8 @@ jobs:
 
       - name: Create directory on VM
         run: |
-          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "sudo -S rm -rf /home/${{ secrets.SSH_USER }}/git_code_realestate && mkdir -p /home/${{ secrets.SSH_USER }}/git_code_realestate"
+          sshpass -p "${{ secrets.DEPLOY_SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USER }}"@"${{ secrets.VM_IP }}" "
+          echo '${{ secrets.DEPLOY_SSH_PASSWORD }}' | sudo -S rm -rf /home/***/git_code_realestate && mkdir -p /home/***/git_code_realestate"
 
       - name: Copy files to VM
         run: |
