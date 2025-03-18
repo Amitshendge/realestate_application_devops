@@ -74,7 +74,7 @@ server {
         try_files \$uri /index.html;
     }
 
-    location = /favicon.ico {
+    location = /home/deploy/git_code_realestate/UI/favicon.ico {
         log_not_found off;
         access_log off;
     }
