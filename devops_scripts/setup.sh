@@ -74,6 +74,11 @@ server {
         try_files \$uri /index.html;
     }
 
+    location = /favicon.ico {
+        log_not_found off;
+        access_log off;
+    }
+
     error_page 404 /index.html;
 }
 EOF
