@@ -18,7 +18,7 @@ function BotSelection({ handleLogout }) {
             // Check if the user is already authenticated
             const accessToken = localStorage.getItem("access_token");
             if (!accessToken) {
-                navigate("/auth"); // Redirect to auth if no token
+                navigate(""); // Redirect to auth if no token
             } else {
                 // Fetch user groups if already authenticated
                 fetchUserGroups();
@@ -32,7 +32,7 @@ function BotSelection({ handleLogout }) {
             localStorage.setItem("access_token", tokenResponse.data.access_token); // Store token
             console.log("Token stored:", tokenResponse.data.access_token); // Debugging
             setUserGroups(tokenResponse.data.user.groups); // Store user groups
-            navigate('/auth/bot-selection'); // Redirect to remove the `code` from the URL
+            navigate('/bot-selection'); // Redirect to remove the `code` from the URL
         } catch (error) {
             console.error("Error exchanging code for token:", error);
             alert("Failed to authenticate. Please try again.");
@@ -53,7 +53,7 @@ function BotSelection({ handleLogout }) {
     };
 
     const handleBotSelect = (botId) => {
-        navigate(`/auth/chatbot/${botId}`); // Navigate to the selected bot's chat interface
+        navigate(`/chatbot/${botId}`); // Navigate to the selected bot's chat interface
     };
 
     // Define bot groups

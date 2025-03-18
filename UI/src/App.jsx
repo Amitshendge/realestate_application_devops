@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
-import AuthComponent from "./components/AuthComponent";
+import AuthComponent from "./componentsComponent";
 import BotSelection from "./components/BotSelection";
 import ChatbotApp from "./components/ChatbotApp";
 import ChatbotApp1 from "./components/ChatbotApp1";
@@ -27,11 +27,11 @@ function App() {
         <Router>
             <Routes>
                 {/* <Route path="/" element={<HomePage />} /> */}
-                <Route path="/auth" element={<AuthComponent onLoginSuccess={handleLoginSuccess} />} />
-                <Route path="/auth/bot-selection" element={<BotSelection handleLogout={handleLogout} />} />
-                <Route path="/auth/chatbot/bot3" element={<ChatbotApp handleLogout={handleLogout} />} />
-                <Route path="/auth/chatbot/bot1" element={<ChatbotApp1 handleLogout={handleLogout} />} />
-                <Route path="/auth/chatbot/bot2" element={<ChatbotApp2 handleLogout={handleLogout} />} />
+                <Route path="/" element={<AuthComponent onLoginSuccess={handleLoginSuccess} />} />
+                <Route path="/bot-selection" element={<BotSelection handleLogout={handleLogout} />} />
+                <Route path="/chatbot/bot3" element={<ChatbotApp handleLogout={handleLogout} />} />
+                <Route path="/chatbot/bot1" element={<ChatbotApp1 handleLogout={handleLogout} />} />
+                <Route path="/chatbot/bot2" element={<ChatbotApp2 handleLogout={handleLogout} />} />
             </Routes>
         </Router>
     );
