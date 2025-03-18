@@ -1,5 +1,5 @@
 . venv/bin/activate
 
-kill -9 $(lsof -t -i:8000)
+kill -9 $(lsof -t -i:8500)
 cd git_code_realestate
-uvicorn main:app --host 0.0.0.0 --port 8000
+nohup uvicorn main:app --host 0.0.0.0 --port 8000 > out.log 2>&1 &
