@@ -83,6 +83,27 @@ server {
 }
 EOF
 
+sudo tee /etc/nginx/sites-enabled/reactapp > /dev/null <<EOF
+server {
+    listen 80;
+    server_name $DOMAIN www.$DOMAIN;
+
+    root $APP_DIR/dist;
+    index index.html;
+
+    location / {
+        try_files \$uri /index.html;
+    }
+
+    location = /home/deploy/git_code_realestate/UI/favicon.ico {
+        log_not_found off;
+        access_log off;
+    }
+
+    error_page 404 /index.html;
+}
+EOF
+
 # Enable Nginx config
 sudo ln -sf /etc/nginx/sites-available/$DOMAIN /etc/nginx/sites-enabled/$DOMAIN
 
