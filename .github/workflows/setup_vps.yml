@@ -33,7 +33,7 @@ jobs:
 
       - name: Create directory on VM 2
         run: |
-          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "mkdir -p /home/${{ secrets.SSH_USER }}/git_code"
+          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "mkdir -p /home/${{ secrets.SSH_USER }}/git_code_realestate"
 
       - name: Copy files to VM
         run: |
