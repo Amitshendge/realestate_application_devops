@@ -62,7 +62,7 @@ npm install
 npm run build
 
 # Ensure Nginx is installed and configured
-sudo tee /etc/nginx/sites-available/reactapp > /dev/null <<EOF
+sudo tee /etc/nginx/sites-available/$DOMAIN > /dev/null <<EOF
 server {
     listen 80;
     server_name $DOMAIN www.$DOMAIN;
