@@ -5,7 +5,7 @@ sudo apt update
 
 # Install Python and virtual environment support
 sudo apt install -y python3
-apt install python3.12-venv
+sudo apt install -y python3.12-venv
 # Create a virtual environment
 python3 -m venv venv
 
