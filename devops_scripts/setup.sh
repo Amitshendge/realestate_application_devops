@@ -46,7 +46,7 @@ sudo ufw enable
 set -e
 
 # Variables
-APP_DIR="/home/deploy/git_code_realestate/UI" # Change this to your project path
+APP_DIR="git_code_realestate/UI" # Change this to your project path
 DOMAIN="onestrealestate.co" # Change this to your actual domain
 
 echo "Starting deployment..."
