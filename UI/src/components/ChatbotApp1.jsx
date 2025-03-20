@@ -14,7 +14,7 @@ function ChatbotApp1() {
     useEffect(() => {
         const accessToken = localStorage.getItem("access_token");
         if (!accessToken) {
-            navigate(""); // Redirect to auth if no token
+            navigate("/auth"); // Redirect to auth if no token
         }
     }, [navigate]);
 
@@ -63,7 +63,7 @@ function ChatbotApp1() {
     // Handle logout
     const handleLogout = () => {
         localStorage.removeItem("access_token"); // Clear the access token
-        navigate(""); // Redirect to the login page
+        navigate("/auth"); // Redirect to the login page
     };
 
     // Handle key down event for message input

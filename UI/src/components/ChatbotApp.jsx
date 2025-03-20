@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 const RASA_URL = "https://onestrealestate.io/rasa_bot";
-const FORMS_JSON_PATH = "https://onestrealestate.io/actions/form_filling_code/forms_subset.json";
+const FORMS_JSON_PATH = "https://onestrealestate.io/auth/actions/form_filling_code/forms_subset.json";
 
 function ChatbotApp() {
     const { botId } = useParams(); // Get the botId from the URL
@@ -20,7 +20,7 @@ function ChatbotApp() {
     useEffect(() => {
         const accessToken = localStorage.getItem("access_token");
         if (!accessToken) {
-            navigate(""); // Redirect to auth if no token
+            navigate("/auth"); // Redirect to auth if no token
         }
     }, [navigate]);
 
@@ -120,7 +120,7 @@ function ChatbotApp() {
     // Handle logout
     const handleLogout = () => {
         localStorage.removeItem("access_token"); // Clear the access token
-        navigate(""); // Redirect to the login page
+        navigate("/auth"); // Redirect to the login page
     };
 
     // Render bot messages

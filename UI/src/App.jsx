@@ -27,11 +27,11 @@ function App() {
         <Router>
             <Routes>
                 {/* <Route path="/" element={<HomePage />} /> */}
-                <Route path="/" element={<AuthComponent onLoginSuccess={handleLoginSuccess} />} />
-                <Route path="/bot-selection" element={<BotSelection handleLogout={handleLogout} />} />
-                <Route path="/chatbot/bot3" element={<ChatbotApp handleLogout={handleLogout} />} />
-                <Route path="/chatbot/bot1" element={<ChatbotApp1 handleLogout={handleLogout} />} />
-                <Route path="/chatbot/bot2" element={<ChatbotApp2 handleLogout={handleLogout} />} />
+                <Route path="/auth" element={<AuthComponent onLoginSuccess={handleLoginSuccess} />} />
+                <Route path="/auth/bot-selection" element={<BotSelection handleLogout={handleLogout} />} />
+                <Route path="/auth/chatbot/bot3" element={<ChatbotApp handleLogout={handleLogout} />} />
+                <Route path="/auth/chatbot/bot1" element={<ChatbotApp1 handleLogout={handleLogout} />} />
+                <Route path="/auth/chatbot/bot2" element={<ChatbotApp2 handleLogout={handleLogout} />} />
             </Routes>
         </Router>
     );

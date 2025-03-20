@@ -5,7 +5,7 @@ function HomePage() {
     const navigate = useNavigate();
 
     const handleOpenChatbot = () => {
-        navigate(''); // Navigate to the authentication route
+        navigate('/auth'); // Navigate to the authentication route
     };
 
     return (
