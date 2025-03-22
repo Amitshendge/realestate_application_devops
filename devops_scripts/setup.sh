@@ -86,6 +86,8 @@ EOF
 # Enable Nginx config
 sudo ln -sf /etc/nginx/sites-available/$DOMAIN /etc/nginx/sites-enabled/
 
+# Test Nginx configuration for syntax errors
+sudo nginx -t && sudo systemctl restart nginx
 # Restart Nginx
 sudo systemctl restart nginx
 
@@ -97,6 +99,9 @@ sudo ufw enable
 if ! sudo certbot certificates | grep -q $DOMAIN; then
     sudo certbot --nginx -d $DOMAIN -d www.$DOMAIN --non-interactive --agree-tos -m Amitshendge1990@gmail.com
     sudo systemctl restart nginx
+      echo "SSL certificate generated for $DOMAIN."
+else
+    echo "SSL certificate already exists for $DOMAIN, skipping certificate generation."
 fi
 
 echo "Deployment completed successfully!"

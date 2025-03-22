@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "https://onestrealestate.io/bot1"; // Backend API URL
+const API_URL = "https://onestrealestate.co/bot1"; // Backend API URL
 
 function ChatbotApp1() {
     const navigate = useNavigate(); // Hook for navigation
