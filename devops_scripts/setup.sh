@@ -72,6 +72,17 @@ else
     echo "Docker is already installed. Skipping installation."
 fi
 
+if ! command -v docker-compose &> /dev/null
+then
+    echo "docker-compose not found. Installing..."
+
+    # Install docker-compose
+    sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r .tag_name)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+    echo "docker-compose installed successfully."
+else
+    echo "docker-compose is already installed."
+fi
 
 # UI Setup
 # Install Nginx
