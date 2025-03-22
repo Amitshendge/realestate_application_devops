@@ -3,47 +3,49 @@ name: Deploy to Hostinger VPS
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on push to the main branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    env:
-      VM_IP: ${{ secrets.VM_IP }}
-      SSH_USER: ${{ secrets.SSH_USER }}
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Add SSH Key
-        uses: webfactory/ssh-agent@v0.7.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Install sshpass
+        run: |
+          sudo apt-get update && sudo apt-get install -y sshpass
 
       - name: Add VM to known hosts
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan ${{ env.VM_IP }} >> ~/.ssh/known_hosts
+          ssh-keyscan ${{ secrets.VM_IP }} >> ~/.ssh/known_hosts
+
+      - name: Test SSH connection
+        run: |
+          sshpass -p ${{ secrets.DEPLOY_SSH_PASSWORD }} ssh -v ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }} "echo 'SSH connection successful'"
+
+      - name: Clean up existing directory on VM
+        run: |
+          sshpass -p "${{ secrets.DEPLOY_SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USER }}"@"${{ secrets.VM_IP }}" "
+          echo '${{ secrets.DEPLOY_SSH_PASSWORD }}' | sudo -S rm -rf /home/${{ secrets.SSH_USER }}/git_code_realestate"
 
       - name: Create directory on VM
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ env.SSH_USER }}@${{ env.VM_IP }} "
-          mkdir -p /home/${{ env.SSH_USER }}/git_code_realestate"
+          sshpass -p "${{ secrets.DEPLOY_SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USER }}"@"${{ secrets.VM_IP }}" "
+          mkdir -p /home/${{ secrets.SSH_USER }}/git_code_realestate"
 
       - name: Copy files to VM
         run: |
-          rsync -avz -e "ssh -o StrictHostKeyChecking=no" . ${{ env.SSH_USER }}@${{ env.VM_IP }}:/home/${{ env.SSH_USER }}/git_code_realestate
+          sshpass -p "${{ secrets.DEPLOY_SSH_PASSWORD }}" scp -r -o StrictHostKeyChecking=no . "${{ secrets.SSH_USER }}"@"${{ secrets.VM_IP }}":/home/${{ secrets.SSH_USER }}/git_code_realestate
 
       - name: Run setup script on VM
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ env.SSH_USER }}@${{ env.VM_IP }} "
-          echo 'Running setup script...'
-          sudo sh /home/${{ env.SSH_USER }}/git_code_realestate/devops_scripts/setup.sh"
+          sshpass -p "${{ secrets.DEPLOY_SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USER }}"@"${{ secrets.VM_IP }}" "
+          echo '${{ secrets.DEPLOY_SSH_PASSWORD }}' | sudo -S sh /home/${{ secrets.SSH_USER }}/git_code_realestate/devops_scripts/setup.sh"
 
       - name: Run deployment script on VM
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ env.SSH_USER }}@${{ env.VM_IP }} "
-          echo 'Running deployment script...'
-          sudo sh /home/${{ env.SSH_USER }}/git_code_realestate/devops_scripts/deploy.sh"
+          sshpass -p "${{ secrets.DEPLOY_SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USER }}"@"${{ secrets.VM_IP }}" "
+          echo '${{ secrets.DEPLOY_SSH_PASSWORD }}' | sudo -S sh /home/${{ secrets.SSH_USER }}/git_code_realestate/devops_scripts/deploy.sh"
