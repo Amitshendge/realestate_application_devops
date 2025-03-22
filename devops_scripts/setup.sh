@@ -74,6 +74,10 @@ server {
         try_files $uri/ /index.html;
     }
 
+    location /auth/ {
+        try_files $uri/ /index.html;
+    }
+
     location = /favicon.ico {
         log_not_found off;
         access_log off;
