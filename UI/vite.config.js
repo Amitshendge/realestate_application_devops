@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()], // Use the React plugin
   server: {
     host: true, // Listen on all network interfaces
-    port: 5173, // Set the development server port
+    port: 80, // Set the development server port
     strictPort: true, // Exit if the port is already in use
   },
   build: {
