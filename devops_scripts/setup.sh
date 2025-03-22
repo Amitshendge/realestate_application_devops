@@ -90,7 +90,6 @@ server {
     }
 }
 
-
 EOF
 # Enable Nginx config
 sudo ln -sf /etc/nginx/sites-available/$DOMAIN /etc/nginx/sites-enabled/
