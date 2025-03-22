@@ -49,3 +49,4 @@ jobs:
         run: |
           sshpass -p "${{ secrets.DEPLOY_SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USER }}"@"${{ secrets.VM_IP }}" "
           echo '${{ secrets.DEPLOY_SSH_PASSWORD }}' | sudo -S sh /home/${{ secrets.SSH_USER }}/git_code_realestate/devops_scripts/deploy.sh"
+          
