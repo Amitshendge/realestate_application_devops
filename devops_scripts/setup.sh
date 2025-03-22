@@ -66,9 +66,18 @@ sudo tee /etc/nginx/sites-available/$DOMAIN > /dev/null <<EOF
 server {
     listen 80;
     server_name onestrealestate.co www.onestrealestate.co;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name onestrealestate.co www.onestrealestate.co;
 
     root /home/deploy/git_code_realestate/UI/dist;
     index index.html;
+
+    ssl_certificate /etc/letsencrypt/live/onestrealestate.co/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/onestrealestate.co/privkey.pem;
 
     location / {
         try_files $uri $uri/ /index.html;
@@ -78,6 +87,7 @@ server {
         try_files $uri $uri/ /index.html;
     }
 }
+
 EOF
 # Enable Nginx config
 sudo ln -sf /etc/nginx/sites-available/$DOMAIN /etc/nginx/sites-enabled/
@@ -90,6 +100,7 @@ sudo systemctl restart nginx
 # Open firewall for HTTP and HTTPS
 sudo ufw allow 'Nginx Full'
 sudo ufw enable
+sudo ufw reload
 
 # Obtain SSL certificate (if not already obtained)
 if ! sudo certbot certificates | grep -q $DOMAIN; then
