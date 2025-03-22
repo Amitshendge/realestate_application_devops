@@ -66,7 +66,9 @@ sudo tee /etc/nginx/sites-available/$DOMAIN > /dev/null <<EOF
 server {
     listen 80;
     server_name onestrealestate.co www.onestrealestate.co;
-    return 301 https://$host$request_uri;
+
+    # Redirect HTTP to HTTPS only once
+    return 301 https://onestrealestate.co$request_uri;
 }
 
 server {
@@ -87,6 +89,7 @@ server {
         try_files $uri $uri/ /index.html;
     }
 }
+
 
 EOF
 # Enable Nginx config
