@@ -1,6 +1,6 @@
 . venv/bin/activate
 
-kill -9 $(lsof -t -i:8500)
+kill -9 $(lsof -t -i:8000)
 cp .env git_code_realestate/.env
 
 cd git_code_realestate
