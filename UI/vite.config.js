@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/auth/', // Set the base path for production builds
+  base: '/', // Set the base path for production builds
   plugins: [react()], // Use the React plugin
   server: {
     host: 'www.onestrealestate.co', // Listen on all network interfaces
