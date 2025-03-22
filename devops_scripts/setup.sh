@@ -71,7 +71,7 @@ server {
     index index.html;
 
     location / {
-        try_files $uri $uri/ /index.html;
+        try_files $uri/ /index.html;
     }
 
     location = /favicon.ico {
