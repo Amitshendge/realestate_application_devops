@@ -79,7 +79,14 @@ server {
         access_log off;
     }
 
-    error_page 404 /index.html;
+    location = /robots.txt {
+        log_not_found off;
+        access_log off;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        try_files $uri =404;
+    }
 }
 EOF
 # Enable Nginx config
