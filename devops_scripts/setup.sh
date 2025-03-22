@@ -71,21 +71,11 @@ server {
     index index.html;
 
     location / {
-        try_files $uri /index.html;
+        try_files $uri $uri/ /index.html;
     }
 
     location /auth/ {
-        try_files $uri /index.html;
-    }
-
-    location = /favicon.ico {
-        log_not_found off;
-        access_log off;
-    }
-
-    location = /robots.txt {
-        log_not_found off;
-        access_log off;
+        try_files $uri $uri/ /index.html;
     }
 }
 EOF
