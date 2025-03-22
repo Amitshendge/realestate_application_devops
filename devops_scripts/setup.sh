@@ -67,7 +67,7 @@ server {
     listen 80;
     server_name onestrealestate.co www.onestrealestate.co;
 
-    root /home/user/git_code_realestate/UI/dist;
+    root /home/deploy/git_code_realestate/UI/dist;
     index index.html;
 
     location / {
