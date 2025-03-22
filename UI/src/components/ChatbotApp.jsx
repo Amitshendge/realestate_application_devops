@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 const RASA_URL = "https://onestrealestate.co/api/rasa_bot";
-const FORMS_JSON_PATH = "https://onestrealestate.co/api/auth/actions/form_filling_code/forms_subset.json";
+const FORMS_JSON_PATH = "https://onestrealestate.co/actions/form_filling_code/forms_subset.json";
 
 function ChatbotApp() {
     const { botId } = useParams(); // Get the botId from the URL
