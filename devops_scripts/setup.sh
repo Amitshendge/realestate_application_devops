@@ -65,16 +65,16 @@ npm run build
 sudo tee /etc/nginx/sites-available/$DOMAIN > /dev/null <<EOF
 server {
     listen 80;
-    server_name $DOMAIN www.$DOMAIN;
+    server_name onestrealestate.co www.onestrealestate.co;
 
-    root $APP_DIR/dist;
+    root /home/user/git_code_realestate/UI/dist;
     index index.html;
 
     location / {
         try_files $uri $uri/ /index.html;
     }
 
-    location = $APP_DIR/favicon.ico {
+    location = /favicon.ico {
         log_not_found off;
         access_log off;
     }
@@ -82,7 +82,8 @@ server {
     error_page 404 /index.html;
 }
 EOF
-
+# unlink default config
+sudo rm /etc/nginx/sites-enabled/default
 # Enable Nginx config
 sudo ln -sf /etc/nginx/sites-available/$DOMAIN /etc/nginx/sites-enabled/
 
