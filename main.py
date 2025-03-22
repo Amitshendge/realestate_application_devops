@@ -45,12 +45,12 @@ app.add_middleware(
 )
 
 
-@app.get("/")
+@app.get("/api/")
 def index():
     """Home route"""
     return {"message": "Welcome to the FastAPI App with Azure AD Authentication!"}
 
-@app.get("/login")
+@app.get("/api/login")
 def login():
     """Generate Azure AD login URL"""
     state = str(uuid.uuid4())  # Random session state
@@ -67,7 +67,7 @@ def login():
             },
         )
 
-@app.get("/dev_login")
+@app.get("/api/dev_login")
 def login():
     """Generate Azure AD login URL"""
     state = str(uuid.uuid4())  # Random session state
@@ -88,7 +88,7 @@ def login():
 class TokenRequest(BaseModel):
     code: str
 
-@app.post("/token")
+@app.post("/api/token")
 def get_user_info(request: TokenRequest):
     """Exchange authorization code for user info"""
     try:
@@ -123,7 +123,7 @@ def get_user_info(request: TokenRequest):
 class TextRequest(BaseModel):
     text_question: str
 
-@app.post("/bot1")
+@app.post("/api/bot1")
 def get_user_info(request: TextRequest):
     """Exchange authorization code for user info"""
     from bot1 import chatbot  # Import the chatbot function from your backend
@@ -135,7 +135,7 @@ def get_user_info(request: TextRequest):
             },
         )
 
-@app.post("/bot2")
+@app.post("/api/bot2")
 def get_user_info(request: TextRequest):
     """Exchange authorization code for user info"""
     from bot2 import chatbot  # Import the chatbot function from your backend
@@ -150,7 +150,7 @@ def get_user_info(request: TextRequest):
 class RasaRequest(BaseModel):
     message: str
     sender: str
-@app.post("/rasa_bot")
+@app.post("/api/rasa_bot")
 def get_user_info(request: RasaRequest):
     """Exchange authorization code for user info"""
     payload = {"sender":request.sender,"message": request.message}
