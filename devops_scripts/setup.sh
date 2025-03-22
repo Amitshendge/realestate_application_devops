@@ -82,8 +82,6 @@ server {
     error_page 404 /index.html;
 }
 EOF
-# unlink default config
-sudo rm /etc/nginx/sites-enabled/default
 # Enable Nginx config
 sudo ln -sf /etc/nginx/sites-available/$DOMAIN /etc/nginx/sites-enabled/
 
