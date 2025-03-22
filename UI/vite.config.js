@@ -5,8 +5,8 @@ export default defineConfig({
   base: '/auth/', // Set the base path for production builds
   plugins: [react()], // Use the React plugin
   server: {
-    host: true, // Listen on all network interfaces
-    port: 80, // Set the development server port
+    host: 'www.onestrealestate.co', // Listen on all network interfaces
+    port: 5173, // Set the development server port
     strictPort: true, // Exit if the port is already in use
   },
   build: {
