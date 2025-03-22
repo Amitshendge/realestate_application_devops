@@ -24,6 +24,55 @@ fi
 
 echo "Python setup complete. Virtual environment is ready."
 
+#!/bin/bash
+
+# Check if Docker is installed
+if ! command -v docker &> /dev/null
+then
+    echo "Docker not found, installing..."
+
+    # Update package list
+    echo "Updating package list..."
+    sudo apt-get update -y
+
+    # Install dependencies
+    echo "Installing dependencies..."
+    sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+
+    # Add Docker's official GPG key
+    echo "Adding Docker's GPG key..."
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+    # Add the Docker repository
+    echo "Adding Docker repository..."
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+    # Update package list again
+    echo "Updating package list again..."
+    sudo apt-get update -y
+
+    # Install Docker
+    echo "Installing Docker..."
+    sudo apt-get install -y docker-ce
+
+    # Start Docker service
+    echo "Starting Docker..."
+    sudo systemctl start docker
+
+    # Enable Docker to start on boot
+    echo "Enabling Docker to start on boot..."
+    sudo systemctl enable docker
+
+    # Verify installation
+    echo "Verifying Docker installation..."
+    sudo docker --version
+
+    echo "Docker installation complete!"
+else
+    echo "Docker is already installed. Skipping installation."
+fi
+
+
 # UI Setup
 # Install Nginx
 sudo apt update && sudo apt install nginx -y
