@@ -63,30 +63,15 @@ npm run build
 
 # Ensure Nginx is installed and configured
 sudo tee /etc/nginx/sites-available/$DOMAIN > /dev/null <<EOF
-server {
+ server {
     listen 80;
-    server_name onestrealestate.co www.onestrealestate.co;
-
-    # Redirect HTTP to HTTPS only once
-    return 301 https://onestrealestate.co$request_uri;
-}
-
-server {
-    listen 443 ssl;
     server_name onestrealestate.co www.onestrealestate.co;
 
     root /home/deploy/git_code_realestate/UI/dist;
     index index.html;
 
-    ssl_certificate /etc/letsencrypt/live/onestrealestate.co/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/onestrealestate.co/privkey.pem;
-
     location / {
-        try_files $uri $uri/ /index.html;
-    }
-
-    location /auth/ {
-        try_files $uri $uri/ /index.html;
+        try_files $uri /index.html;
     }
 }
 
