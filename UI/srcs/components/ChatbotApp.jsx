@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 
-const RASA_URL = "https://onestrealestate.co/rasa_bot";
+const RASA_URL = "https://onestrealestate.co/api/rasa_bot";
 const FORMS_JSON_PATH = "actions/form_filling_code/forms_subset.json";
-const AUTH_URL = "https://onestrealestate.co/login";
+const AUTH_URL = "https://onestrealestate.co/api/login";
 
 
 function ChatbotApp() {
@@ -64,7 +64,7 @@ function ChatbotApp() {
 
   const exchangeCodeForToken = async (code) => {
     try {
-      const tokenResponse = await axios.post("https://onestrealestate.co/token", {
+      const tokenResponse = await axios.post("https://onestrealestate.co/api/token", {
         code,
       });
 

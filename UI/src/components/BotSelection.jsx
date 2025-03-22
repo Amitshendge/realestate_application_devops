@@ -28,7 +28,7 @@ function BotSelection({ handleLogout }) {
 
     const exchangeCodeForToken = async (code) => {
         try {
-            const tokenResponse = await axios.post("https://onestrealestate.co/token", { code });
+            const tokenResponse = await axios.post("https://onestrealestate.co/api/token", { code });
             localStorage.setItem("access_token", tokenResponse.data.access_token); // Store token
             console.log("Token stored:", tokenResponse.data.access_token); // Debugging
             setUserGroups(tokenResponse.data.user.groups); // Store user groups
@@ -41,7 +41,7 @@ function BotSelection({ handleLogout }) {
 
     const fetchUserGroups = async () => {
         try {
-            const response = await axios.get("https://onestrealestate.co/user", {
+            const response = await axios.get("https://onestrealestate.co/api/user", {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("access_token")}`
                 }
