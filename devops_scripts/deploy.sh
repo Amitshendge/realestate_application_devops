@@ -9,7 +9,13 @@ cd git_code_realestate
 nohup uvicorn main:app --host 0.0.0.0 --port 8000 > out.log 2>&1 &
 
 
-docker rm $(docker ps -a -q)
+
+if [ "$(docker ps -aq)" ]; then
+    echo "Removing all stopped containers..."
+    docker rm $(docker ps -aq)
+else
+    echo "No containers to remove."
+fi
 
 cd rasa_bot
 docker-compose up --build -d
