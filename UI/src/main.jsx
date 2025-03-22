@@ -1,10 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { MsalProvider } from "@azure/msal-react";
+import App from "./App";
+import "./index.css"; // Optional for additional styles
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+
+// Create a root using createRoot
+const root = createRoot(document.getElementById("root"));
+
+// Render the app
+root.render(
+  <React.StrictMode>
+      <App />
+  </React.StrictMode>
+);
