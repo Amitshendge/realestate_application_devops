@@ -6,6 +6,7 @@ import uuid
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import requests
+import json
 
 # Load environment variables
 load_dotenv()
@@ -159,3 +160,9 @@ def get_user_info(request: RasaRequest):
         return response.json()
     else:
         return [{"text": "Sorry, I couldn't get a response from the bot."}]
+
+@app.get("/api/form_filling_code_file")
+def index():
+    with open('rasa_bot/app/actions/form_filling_code/forms_subset.json', 'r') as file:
+        data = json.load(file)
+        return data
