@@ -1,0 +1,11 @@
+ server {
+    listen 80;
+    server_name onestrealestate.co www.onestrealestate.co;
+
+    root /home/deploy/git_code_realestate/UI/dist;
+    index index.html;
+
+    location / {
+        try_files $uri /index.html;
+    }
+}
