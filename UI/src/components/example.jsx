@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const RASA_URL = "http://localhost:2005/webhooks/rest/webhook";
-const FORMS_JSON_PATH = "actions/form_filling_code/forms_subset.json"; // Replace with the actual path to your JSON file
+const FORMS_JSON_PATH = "auth/actions/form_filling_code/forms_subset.json"; // Replace with the actual path to your JSON file
 
 function ChatbotApp() {
   const [message, setMessage] = useState("");
