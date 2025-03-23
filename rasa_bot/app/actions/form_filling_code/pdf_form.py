@@ -110,13 +110,13 @@ class PDFFormFiller:
         elif question_meta_data['autofill_type'] == 'static_mapping':
             self.fill_response(state, question_meta_data['form_feild'], None, self.static_maping[question_meta_data['autofill_value']])
         elif question_meta_data['autofill_type'] == 'user_mapping':
-            if self.user_data:
+            if self.user_data or self.user_data[question_meta_data['autofill_value']]:
                 self.fill_response(state, question_meta_data['form_feild'], None, self.user_data[question_meta_data['autofill_value']])
             else:
                 question_meta_data['Type'] = 'input_text'
                 print('User not found in database')
                 print(next_question)
-                state["questions"] = self.insert_into_dict(state["questions"], {next_question+" input" : question_meta_data}, state["current_index"]+2)
+                state["questions"] = self.insert_into_dict(state["questions"], {next_question : question_meta_data}, state["current_index"]+2)
                 # self.fill_response(state, question_meta_data['form_feild'], None, 'Email Not found in database')
         elif question_meta_data['autofill_type'] == 'date_today':
             self.fill_response(state, question_meta_data['form_feild'], None, datetime.datetime.now().strftime("%d-%m-%Y"))

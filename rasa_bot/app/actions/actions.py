@@ -43,6 +43,7 @@ class ActionAskDynamicQuestions(Action):
             return list(state_questions.keys())
         
         def get_next_question(state, questions, current_index):
+            questions = get_questions(state["questions"])
             if current_index < len(questions):
                 next_question = questions[current_index]
                 if 'skip' in state['questions'][next_question] and state['questions'][next_question]['skip']:
