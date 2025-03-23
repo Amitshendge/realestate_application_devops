@@ -110,7 +110,7 @@ class PDFFormFiller:
         elif question_meta_data['autofill_type'] == 'static_mapping':
             self.fill_response(state, question_meta_data['form_feild'], None, self.static_maping[question_meta_data['autofill_value']])
         elif question_meta_data['autofill_type'] == 'user_mapping':
-            if self.user_data or self.user_data[question_meta_data['autofill_value']]:
+            if self.user_data and self.user_data[question_meta_data['autofill_value']]:
                 self.fill_response(state, question_meta_data['form_feild'], None, self.user_data[question_meta_data['autofill_value']])
             else:
                 question_meta_data['Type'] = 'input_text'
