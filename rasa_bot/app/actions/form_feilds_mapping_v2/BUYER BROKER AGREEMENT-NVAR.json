@@ -1,21 +1,22 @@
 {
     "Agreement made on date": {"Type" : "autofill", "form_feild" : "Text-F8jcB_Mm7I","autofill_type" : "date_today"},
     "Buyer Name": {"Type" : "input_text", "form_feild" : "Text-qOAgScQC-m"},
-    "Broker or Firm Name": {"Type" : "autofill", "form_feild" : "Text-HqNu6kakZS", "autofill_type" : "static", "autofill_value" : "Onest Realestate"},
+    "Broker or Firm Name": {"Type" : "autofill", "form_feild" : "Text-HqNu6kakZS", "autofill_type" : "static_mapping", "autofill_value" : "firm_name"},
     "Type of property buyer is retaining Broker": {"Type" : "input_text", "form_feild" : "Text-ynppZsgodg"},
     "Buyer Mailing Address": {"Type" : "input_text", "form_feild" : "Text-uaJcvV9O2B"},
     "Buyer State, City, Zip Code": {"Type" : "input_text", "form_feild" : "Text-ZLQF1FaLBA"},
     "Buyer Home Contact Number": {"Type" : "input_text", "form_feild" : "Text-kE3d4iMBWV", "skip": true},
     "Buyer Work Contact Number": {"Type" : "input_text", "form_feild" : "Text-t9iVEWTu0j", "skip": true},
     "Buyer Cell Contact Number": {"Type" : "input_text", "form_feild" : "Text-Z12kBKW1SL"},
-    "Broker Mailing Address": {"Type" : "autofill", "form_feild" : "Text-TaYDElouQH", "autofill_type" : "static", "autofill_value" : "9697 Main St d"},
-    "Broker State, City, Zip Code": {"Type" : "autofill", "form_feild" : "Text-pyX1XfuGM9", "autofill_type" : "static", "autofill_value" : "Fairfax, VA 22031"},
+    "Broker Mailing Address": {"Type" : "autofill", "form_feild" : "Text-TaYDElouQH", "autofill_type" : "static_mapping", "autofill_value" : "mailing_address"},
+    "Broker State, City, Zip Code": {"Type" : "autofill", "form_feild" : "Text-pyX1XfuGM9", "autofill_type" : "static_mapping", "autofill_value" : "city_state_zip"},
     "Broker Work Contact Number": {"Type" : "input_text", "form_feild" : "Text-1qlHvOG-SN", "skip": true},
-    "Broker Cell Contact Number": {"Type" : "autofill", "form_feild" : "Text-h8rmZooWmq", "autofill_type" : "static", "autofill_value" : "(833) 663-7803"},
-    "Broker Email": {"Type" : "autofill", "form_feild" : "Text-U92-WBcK4N", "autofill_type" : "static", "autofill_value" : "info@onest.realestate"},
+    "Broker Cell Contact Number": {"Type" : "autofill", "form_feild" : "Text-h8rmZooWmq", "autofill_type" : "static_mapping", "autofill_value" : "phone_number"},
+    "Broker Email": {"Type" : "autofill", "form_feild" : "Text-U92-WBcK4N", "autofill_type" : "static_mapping", "autofill_value" : "email"},
     "Agreement Epiration Date": {"Type" : "autofill", "form_feild" : "Text-vftdh5YzGY","autofill_type" : "date_offset", 
 "autofill_value" : 90},
     "Early Termination Fee buyer will pay Broker ($)": {"Type" : "input_text", "form_feild" : "Text-FuwCFXqRFc"},
+    "Percentage of gross sale price":{"Type" : "autofill", "form_feild" : "Text-adWnnIUawh", "autofill_type" : "static_mapping", "autofill_value" : "buyers_broker_compensation"},
     "Buyer will pay percentage (%) or amount ($)": {
     "Type": "check_list",
     "form_feild": 
@@ -25,7 +26,8 @@
     "questions": {
       "Percentage": {"Percentage of gross sale price":{"Type" : "input_text", "form_feild" : "Text-adWnnIUawh"}},
       "Amount": {"Broker Compensation Amount":{"Type" : "input_text", "form_feild" : "Text-7wAuZ8ujBI"}}
-    }
+    },
+    "skip": true
     },
     "Days after expiration or trmination Broker Comminssion will be earned ": {"Type" : "autofill", "form_feild" : "Text-_LmWhyikuG","autofill_type" : "static", "autofill_value" : 30},
     "Retainer Fee": {
@@ -99,16 +101,20 @@
 
     "Broker Name": {"Type" : "autofill", "form_feild" : "Text-pMfCAOPDKv", "autofill_type" : "reference", "autofill_value" : "Text-HqNu6kakZS"},
     "Broker work phone number": {"Type" : "input_text", "form_feild" : "Text-XqKgLxlGge", "skip":true},
-    "Broker cell phone number": {"Type" : "autofill", "form_feild" : "Text-EotXm2Fjmv", "autofill_type" : "reference", "autofill_value" : "Text-Z12kBKW1SL"},
+    "Broker cell phone number": {"Type" : "autofill", "form_feild" : "Text-EotXm2Fjmv", "autofill_type" : "reference", "autofill_value" : "Text-h8rmZooWmq"},
     "Broker email": {"Type" : "autofill", "form_feild" : "Text-KrcBoGya_u", "autofill_type" : "reference", "autofill_value" : "Text-U92-WBcK4N"},
     "Broker fax number": {"Type" : "input_text", "form_feild" : "Text-jtPjM6ZcYq", "skip":true},
 
     "Client Name1": {"Type" : "autofill", "form_feild" : "Text-_Z2x5ZOF8m", "autofill_type" : "reference", "autofill_value" : "Text-qOAgScQC-m"},
-    "Client Name2": {"Type" : "autofill", "form_feild" : "Text-dA5fCqnRFq", "autofill_type" : "reference", "autofill_value" : "Text-qOAgScQC-m"},
-    "Client Name3": {"Type" : "autofill", "form_feild" : "Text-We5DRiiSx3", "autofill_type" : "reference", "autofill_value" : "Text-qOAgScQC-m"},
+    "Client Name2": {"Type" : "autofill", "form_feild" : "Text-dA5fCqnRFq", "autofill_type" : "reference", "autofill_value" : "Text-qOAgScQC-m", "skip": true},
+    "Client Name3": {"Type" : "autofill", "form_feild" : "Text-We5DRiiSx3", "autofill_type" : "reference", "autofill_value" : "Text-qOAgScQC-m", "skip": true},
 
-    "To_Client Name": {"Type" : "autofill", "form_feild" : "Text-sa0IZEL33p", "autofill_type" : "reference", "autofill_value" : "Text-qOAgScQC-m"},
-    "Date2": {"Type" : "autofill", "form_feild" : "Text-q9-OjCaZk-", "autofill_type" : "date_today"},
+    "To_Client Name": {"Type" : "autofill", "form_feild" : "text_48wimw", "autofill_type" : "reference", "autofill_value" : "Text-qOAgScQC-m"},
+    "Date2": {"Type" : "autofill", "form_feild" : "text_49ymri", "autofill_type" : "date_today"},
+    "Date3": {"Type" : "autofill", "form_feild" : "text_51grzr", "autofill_type" : "date_today"},
+
+    "Onest_Client Name": {"Type" : "autofill", "form_feild" : "text_46mndz", "autofill_type" : "reference", "autofill_value" : "Text-qOAgScQC-m"},
+    "Date4": {"Type" : "autofill", "form_feild" : "text_47rtx", "autofill_type" : "date_today"},
 
     "Broker/Agent Name": {"Type" : "autofill", "form_feild" : "Text-j7bLYiy87Y", "autofill_type" : "reference", "autofill_value" : "Text-HqNu6kakZS"},
     "Client Name": {"Type" : "autofill", "form_feild" : "Text-QKQRfU6fk-", "autofill_type" : "reference", "autofill_value" : "Text-qOAgScQC-m"},
@@ -121,5 +127,5 @@
         "Buyer Client": ["CheckBox-0aqC_AjmEH"]
       }
   },
-  "Address": {"Type" : "input_text", "form_feild" : "Text-RUJeZpgwtS"}
+  "Address": {"Type" : "autofill", "form_feild" : "Text-RUJeZpgwtS", "autofill_type" : "reference", "autofill_value" : "Text-uaJcvV9O2B"}
 }

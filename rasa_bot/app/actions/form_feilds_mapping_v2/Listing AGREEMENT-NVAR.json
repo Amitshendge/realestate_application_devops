@@ -1,7 +1,7 @@
 {
     "Agreement made on date": {"Type" :"autofill",  "form_feild" : "Text-xVyHFjwN3p", "autofill_type" : "date_today"},
     "Seller Name": {"Type" : "input_text", "form_feild" : "Text-xYbJMhB8fA"},
-    "Firm (Broker) Name": {"Type" : "input_text", "form_feild" : "Text-ELvY8c3ur8"},
+    "Firm (Broker) Name": {"Type" : "autofill", "form_feild" : "Text-ELvY8c3ur8", "autofill_type" : "static_mapping", "autofill_value" : "firm_name"},
     "Property street Address": {"Type" : "input_text", "form_feild" : "Text-qvw1G_Gxoj"},
     "Property Unit #": {"Type" : "input_text", "form_feild" : "Text-DrFKPc-46q"},
     "City": {"Type" : "input_text", "form_feild" : "Text-aEsp6R-ilo"},
@@ -432,23 +432,23 @@
             "questions": {
                 "Septic": {
                     "Approved for # Bedrooms": {"Type": "input_text", "form_feild": "Text-mA8JG3JUjw"}
+                },
+                "Type of Septic System": {
+                    "Type": "check_list",
+                    "form_feild": {
+                        "Community": ["CheckBox-rb5WiZp9Ac"],
+                        "Conventional": ["CheckBox-GvOe5TsVQZ"],
+                        "Alternative": ["CheckBox-bLwK-e3N8W"],
+                        "Experimental": ["CheckBox-Q821vkFFdV"]
+                    }
+                },
+                "Septic System Waiver": {
+                    "Type": "check_list",
+                    "form_feild": {
+                        "Is Operating": ["CheckBox-1v1yX-q4m9"],
+                        "Is Not Operating": ["CheckBox-50sNZXfwff"]
+                    }
                 }
-            }
-        },
-        "Type of Septic System": {
-            "Type": "check_list",
-            "form_feild": {
-                "Community": ["CheckBox-rb5WiZp9Ac"],
-                "Conventional": ["CheckBox-GvOe5TsVQZ"],
-                "Alternative": ["CheckBox-bLwK-e3N8W"],
-                "Experimental": ["CheckBox-Q821vkFFdV"]
-            }
-        },
-        "Septic System Waiver": {
-            "Type": "check_list",
-            "form_feild": {
-                "Is Operating": ["CheckBox-1v1yX-q4m9"],
-                "Is Not Operating": ["CheckBox-50sNZXfwff"]
             }
         },
         " Broker Showing Instructions": {"Type": "input_text", "form_feild": "Text-rzIBhqpB0C"},

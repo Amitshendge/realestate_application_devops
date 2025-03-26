@@ -1,4 +1,8 @@
 {
+  "firm_name": "oNEST REAL ESTATE",
   "mailing_address": "9697 Main St d",
-  "city_state_zip": "Fairfax, VA 22031"
+  "city_state_zip": "Fairfax, VA 22031",
+  "phone_number": "(833) 663-7803",
+  "email": "info@onest.realestate",
+  "buyers_broker_compensation": "2.5"
 }

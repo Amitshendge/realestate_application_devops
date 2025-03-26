@@ -119,9 +119,9 @@ class PDFFormFiller:
                 state["questions"] = self.insert_into_dict(state["questions"], {"Enter " + next_question : question_meta_data}, state["current_index"]+2)
                 # self.fill_response(state, question_meta_data['form_feild'], None, 'Email Not found in database')
         elif question_meta_data['autofill_type'] == 'date_today':
-            self.fill_response(state, question_meta_data['form_feild'], None, datetime.datetime.now().strftime("%d-%m-%Y"))
+            self.fill_response(state, question_meta_data['form_feild'], None, datetime.datetime.now().strftime("%m-%d-%Y"))
         elif question_meta_data['autofill_type'] == 'date_offset':
-            self.fill_response(state, question_meta_data['form_feild'], None, (datetime.datetime.now() + datetime.timedelta(days=question_meta_data['autofill_value'])).strftime("%d-%m-%Y"))
+            self.fill_response(state, question_meta_data['form_feild'], None, (datetime.datetime.now() + datetime.timedelta(days=question_meta_data['autofill_value'])).strftime("%m-%d-%Y"))
         return state
 
     def fill_response(self, state, form_field, add_questions, latest_message):
