@@ -150,8 +150,11 @@ class PDFFormFiller:
                 if add_questions:
                     if 'question' in add_questions:
                         state["questions"] = self.insert_into_dict(state["questions"], add_questions['question'], state["current_index"])
-                    elif 'form':
-                        form_name_change = add_questions['form']
+                    elif 'form' in add_questions or 'form2' in add_questions:
+                        try:
+                            form_name_change = add_questions['form2']
+                        except:
+                            form_name_change = add_questions['form']
                         state["questions"] = self.insert_into_dict(state["questions"], self.read_json_form(f"/app/actions/form_feilds_mapping_v2/{form_name_change}.json"), state["current_index"])
                     print("state", state)
             else:

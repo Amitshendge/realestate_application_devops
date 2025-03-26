@@ -26,7 +26,8 @@
                     },
                     "next_action": {
                       "VA Financing": {
-                        "form": "VA Financing Contingency - NVAR K1339"
+                        "form": "Addendum Lease - K1384",
+                        "form2": "Addendum Lease - K1384"
                       },
                       "FHA Financing": {
                         "form": "K1340 - FHA Financing Contingency"
