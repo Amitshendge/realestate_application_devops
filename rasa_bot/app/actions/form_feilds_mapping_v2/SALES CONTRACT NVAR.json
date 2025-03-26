@@ -1,4 +1,15 @@
 {
+  "Fill out the Residential Sales Contract - NVAR K1321": {
+    "Type": "check_list_form",
+    "form_feild": {
+      "Yes": [],
+      "No": []
+    },
+    "next_action": {
+      "Yes": { "form": "Residential Sales Contract - K1321" },
+      "No": {}
+    }
+  },
   "Are you representing the Buyer or the Seller": {
     "Type": "check_list_form",
     "form_feild": {
@@ -26,8 +37,7 @@
                     },
                     "next_action": {
                       "VA Financing": {
-                        "form": "Addendum Lease - K1384",
-                        "form2": "Addendum Lease - K1384"
+                        "form": "VA Financing Contingency - NVAR K1339"
                       },
                       "FHA Financing": {
                         "form": "K1340 - FHA Financing Contingency"
@@ -44,7 +54,7 @@
           }
         }
       },
-      "Seller": { "form": "Residential Sales Contract - K1321" }
+      "Seller": {}
     }
   },
   "Are you including Home Inspection Contingency": {
