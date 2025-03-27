@@ -7,24 +7,39 @@ function BotSelection({ handleLogout }) {
     const navigate = useNavigate();
     const [userGroups, setUserGroups] = useState([]);
 
+    // useEffect(() => {
+    //     const queryParams = new URLSearchParams(location.search);
+    //     const authCode = queryParams.get("code");
+
+    //     if (authCode) {
+    //         // Exchange the code for an access token
+    //         exchangeCodeForToken(authCode);
+    //     } else {
+    //         // Check if the user is already authenticated
+    //         const accessToken = localStorage.getItem("access_token");
+    //         if (!accessToken) {
+    //             navigate("/auth"); // Redirect to auth if no token
+    //         } else {
+    //             // Fetch user groups if already authenticated
+    //             fetchUserGroups();
+    //         }
+    //     }
+    // }, [location, navigate]);
+
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
         const authCode = queryParams.get("code");
-
+        const accessToken = localStorage.getItem("access_token");
+    
         if (authCode) {
-            // Exchange the code for an access token
             exchangeCodeForToken(authCode);
+        } else if (accessToken) {
+            fetchUserGroups(); // Always re-fetch if access token exists
         } else {
-            // Check if the user is already authenticated
-            const accessToken = localStorage.getItem("access_token");
-            if (!accessToken) {
-                navigate("/auth"); // Redirect to auth if no token
-            } else {
-                // Fetch user groups if already authenticated
-                fetchUserGroups();
-            }
+            navigate("/auth"); // Redirect to auth if no token
         }
-    }, [location, navigate]);
+    }, []); // <= notice: removed [location, navigate] dependencies
+    
 
     const exchangeCodeForToken = async (code) => {
         try {
