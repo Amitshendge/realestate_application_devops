@@ -4,7 +4,7 @@
     "Firm (Broker) Name": {"Type" : "autofill", "form_feild" : "Text-ELvY8c3ur8", "autofill_type" : "static_mapping", "autofill_value" : "firm_name"},
     "Property street Address": {"Type" : "input_text", "form_feild" : "Text-qvw1G_Gxoj"},
     "Property Unit #": {"Type" : "input_text", "form_feild" : "Text-DrFKPc-46q"},
-    "City": {"Type" : "input_text", "form_feild" : "Text-aEsp6R-ilo"},
+    "City.": {"Type" : "input_text", "form_feild" : "Text-aEsp6R-ilo"},
     "Zip Code": {"Type" : "input_text", "form_feild" : "Text-R8zF4YsMZ7"},
     "TAX Map/Id": {"Type" : "input_text", "form_feild" : "Text-Ccy5gig_88"},
     "Parking Space": {"Type" : "input_text", "form_feild" : "Text-UQRCufo_eN"},
@@ -136,14 +136,14 @@
         "does not authorizes": ["CheckBox-5heQDmXZDr"]
       }
   },
-  "Alarm System": {
+  "Alarm System.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-QMoT41EDhJ"],
         "No": ["NA"]
       }
   },
-  "Built-in Microwave": {
+  "Built-in Microwave.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-uab9uNOcy3"],
@@ -178,21 +178,21 @@
         "No": ["NA"]
       }
   },
-  "Cooktop": {
+  "Cooktop.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-myS3PAybuk"],
         "No": ["NA"]
       }
   },
-  "Dishwasher": {
+  "Dishwasher.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-WCJKyi4RXT"],
         "No": ["NA"]
       }
   },
-  "Disposer": {
+  "Disposer.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-xLvqiG-wzJ"],
@@ -213,21 +213,21 @@
         "No": ["NA"]
       }
   },
-  "Freezer": {
+  "Freezer.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-PEr8C41aB7"],
         "No": ["NA"]
       }
   },
-  "Furnace Humidifier": {
+  "Furnace Humidifier.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-mBo0roITMg"],
         "No": ["NA"]
       }
   },
-  "Garage Opener": {
+  "Garage Opener.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-b1CA8GRinB"],
@@ -241,7 +241,7 @@
         "No": ["NA"]
       }
   },
-  "Gas Logs": {
+  "Gas Logs.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-e_jAAN7dpJ"],
@@ -255,14 +255,14 @@
         "No": ["NA"]
       }
   },
-  "Intercom": {
+  "Intercom.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-Igi2_kkMh2"],
         "No": ["NA"]
       }
   },
-  "Playground Equipment": {
+  "Playground Equipment.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-npmteVlVqh"],
@@ -276,7 +276,7 @@
         "No": ["NA"]
       }
   },
-  "Refrigerator": {
+  "Refrigerator.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-h_45zuWoip"],
@@ -297,7 +297,7 @@
         "No": ["NA"]
       }
   },
-  "Storage Shed": {
+  "Storage Shed.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-IBxap0Wmeb"],
@@ -311,7 +311,7 @@
         "No": ["NA"]
       }
   },
-  "Wall Oven": {
+  "Wall Oven.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-XXmPDjrDib"],
@@ -332,14 +332,14 @@
         "No": ["NA"]
       }
   },
-  "Window Fan": {
+  "Window Fan.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox--msBWZaibW"],
         "No": ["NA"]
       }
   },
-  "Window Treatments": {
+  "Window Treatments.": {
     "Type": "check_list",
     "form_feild": 
       { "Yes": ["CheckBox-k3I53VmabS"],
@@ -366,7 +366,7 @@
   "Following is a list of leased items within Property": {"Type": "input_text", "form_feild": "Text-54M7zoSkmP"},
   "Cost Not to exceed ($)": {"Type" : "input_text", "form_feild" : "Text-ZnmHI90SGg"},
   "Warranty provider to be": {"Type" : "input_text", "form_feild" : "Text-PgjY2D7FIO"},
-  "Hot Water": {
+  "Hot Water.": {
             "Type": "check_list",
             "form_feild": {
                 "Oil": ["CheckBox-2P1dKNume8"],
@@ -381,7 +381,7 @@
                 "Number of Gallons": {"Type": "input_text", "form_feild": "Text-jSzPceldFC"}
             }
         },
-        "Air Conditioning": {
+        "Air Conditioning.": {
             "Type": "check_list",
             "form_feild": {
                 "Oil": ["CheckBox-RRUsrJsVOJ"],
@@ -398,7 +398,7 @@
                 "Zones": {"Specify Zones":{"Type": "input_text", "form_feild": "Text-7FtvCKKAzl"}}
             }
         },
-        "Heating": {
+        "Heating.": {
             "Type": "check_list",
             "form_feild": {
                 "Oil": ["CheckBox-5R3oA73XTr"],
@@ -415,7 +415,7 @@
                "Zones": {"Specify Zones":{"Type": "input_text", "form_feild": "Text-3RaD6Y79c0"}}
             }
         },
-        "Water Supply": {
+        "Water Supply.": {
             "Type": "check_list",
             "form_feild": {
                 "Public": ["CheckBox-sKcHzJNZuY"],
@@ -423,7 +423,7 @@
                 "Community Well": ["CheckBox-B4OxhA6HIg"]
             }
         },
-        "Sewage Disposal": {
+        "Sewage Disposal.": {
             "Type": "check_list",
             "form_feild": {
                 "Public": ["CheckBox-f9FqYh86v9"],
@@ -678,7 +678,7 @@
             "Approximate Balance": {"Type": "input_text", "form_feild": "Text-HxCQhF2JG4"}
         }
 
-        },
+        }},
         "Seller Financing Agreement": {
             "Type": "check_list",
             "form_feild": {
@@ -1229,11 +1229,5 @@
         "Received 10-day Opportunity": ["CheckBox-hIVdsxelBQ"],
         "Waived Opportunity": ["CheckBox-mnutXX6jOp"]
     }
-}
-
-
-
-        
-    }
-  
+  }   
 }
