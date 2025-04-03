@@ -6,6 +6,7 @@ import BotSelection from "./components/BotSelection";
 import ChatbotApp from "./components/ChatbotApp";
 import ChatbotApp1 from "./components/ChatbotApp1";
 import ChatbotApp2 from "./components/ChatbotApp2";
+import EditForm from "./components/EditForm";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/auth/chatbot/bot3" element={<ChatbotApp handleLogout={handleLogout} />} />
                 <Route path="/auth/chatbot/bot1" element={<ChatbotApp1 handleLogout={handleLogout} />} />
                 <Route path="/auth/chatbot/bot2" element={<ChatbotApp2 handleLogout={handleLogout} />} />
+                <Route path="/auth/editform" element={<EditForm handleLogout={handleLogout} />} />
             </Routes>
         </Router>
     );

@@ -166,3 +166,39 @@ def index():
     with open('rasa_bot/app/actions/form_filling_code/forms_subset.json', 'r') as file:
         data = json.load(file)
         return data
+
+@app.get("/api/list_of_forms")
+def index():
+    return [file for file in os.listdir('rasa_bot/app/actions/form_feilds_mapping_v2') if file.endswith('.json')]
+
+@app.get("/api/get_form_json/{file_name}")
+def get_form_json(file_name: str, type: str = "form_json"):
+    """Get form JSON data"""
+    if type == "form_json":
+        file_path = os.path.join('rasa_bot/app/actions/form_feilds_mapping_v2', file_name)
+        if os.path.exists(file_path):
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+                return data
+        else:
+            raise HTTPException(status_code=404, detail="File not found")
+    elif type == "mapping_json":
+        file_path = os.path.join('rasa_bot/app/actions/form_filling_code', file_name)
+        if os.path.exists(file_path):
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+                return data
+        else:
+            raise HTTPException(status_code=404, detail="File not founds")
+
+
+@app.post("/api/update_form_json/{file_name}")
+def update_form_json(file_name: str, form_data: dict):
+    """Update form JSON data"""
+    file_path = os.path.join('rasa_bot/app/actions/form_feilds_mapping_v2', file_name)
+    if os.path.exists(file_path):
+        with open(file_path, 'w') as file:
+            json.dump(form_data, file, indent=4)
+        return {"message": "File updated successfully"}
+    else:
+        raise HTTPException(status_code=404, detail="File not found")
